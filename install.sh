@@ -70,7 +70,7 @@ sudo -u postgres createdb -O ocsiuser ocsitest
 #install composer
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 (cd /var/www/html/ocsi_test_backend && composer install)
-(cd /var/www/html/ocsi_test_backend && php artsian migrate --seed)
+(cd /var/www/html/ocsi_test_backend && php artisan migrate --seed)
 
 
 #run npm install in the frontend
