@@ -19,7 +19,8 @@ Vagrant.configure("2") do |config|
   end
 
   # Folder
-  config.vm.synced_folder "C:/Code/laravel/ocsi/OcsiTest", "/var/www/html/OcsiTest"
+  config.vm.synced_folder "C:/Code/laravel/ocsi/ocsi_test_frontend", "/var/www/html/ocsi_test_frontend"
+  config.vm.synced_folder "C:/Code/laravel/ocsi/ocsi_test_backend", "/var/www/html/ocsi_test_backend"
 
   # network stuff
   config.vm.network "forwarded_port", guest: 5900, host: 5900, host_ip: "127.0.0.1"

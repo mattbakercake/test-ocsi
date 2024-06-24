@@ -13,10 +13,10 @@ apt-get install -y apache2
 cat <<-VHCONFIG > /etc/apache2/sites-available/ocsitest.conf
 <VirtualHost *:80>
    ServerAdmin webmaster@localhost
-   DocumentRoot /var/www/html/OcsiTest/ocsi_test_frontend/dist
-   Alias /backend /var/www/html/OcsiTest/ocsi_test_backend/public
+   DocumentRoot /var/www/html/ocsi_test_frontend/dist
+   Alias /backend /var/www/html/ocsi_test_backend/public
 
-   <Directory /var/www/html/OcsiTest/ocsi_test_backend/public>
+   <Directory /var/www/html/ocsi_test_backend/public>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -69,12 +69,12 @@ sudo -u postgres createdb -O ocsiuser ocsitest
 
 #install composer
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-(cd /var/www/html/OcsiTest/ocsi_test_backend && composer install)
-(cd /var/www/html/OcsiTest/ocsi_test_backend && php artsian migrate --seed)
+(cd /var/www/html/ocsi_test_backend && composer install)
+(cd /var/www/html/ocsi_test_backend && php artsian migrate --seed)
 
 
 #run npm install in the frontend
-(cd /var/www/html/OcsiTest/ocsi_test_frontend && npm install)
+(cd /var/www/html/ocsi_test_frontend && npm install)
 
 
 #update nodejs and node from package manager versions (vue-cli build errors)
